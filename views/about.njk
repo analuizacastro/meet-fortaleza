@@ -1,0 +1,62 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>About -
+        {{ about.title }}</title>
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div>
+            <img src="{{ about.photo_url }}" alt="Image of {[ about.title }}">
+            <h1>{{ about.title }}</h1>
+            <h2>{{ about.description }}</h2>
+        </div>
+        <div class="text">
+            <p>
+                {{ about.text }}
+            </p>
+            <a href="/videos">
+                <button>Meet Fortaleza</button>
+            </a>
+        </div>
+    </div>
+
+    <h1>Featured videos</h1>
+    <section class="cards">
+        {% set limit = 0 %}
+        {% for item in items %}
+            {% if item.featured %}
+                {% if limit <= 2 %}
+                    {% set limit = (limit + 1) %}
+                    <div class="card-about" id="{{item.id}}">
+                        <div class="card-image-container {{ 'featured-wrapper' if item.featured }}">
+                            <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Vídeo 'O que fazer em Fortaleza'">
+                            {% if item.featured %}
+                                <div class="featured">Featured</div>
+                            {% endif %}
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                {{item.title}}
+                            </p>
+                        </div>
+                        <div class="card-info">
+                            <p>{{item.duration}}</p>
+                            <p>{{item.type}}</p>
+                        </div>
+                    </div>
+                    {{item.src}}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+    </section>
+
+    <footer class="links">
+        {% for link in about.links %}
+            <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+        {% endfor %}
+    </footer>
+    <script src="scripts-about.js"></script>
+{% endblock %}

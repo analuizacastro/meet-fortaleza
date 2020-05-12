@@ -45,11 +45,12 @@ header{
     font-size: 20px;
     color: white;
     transition: 400ms;
+    cursor: pointer;
 }
 
 #wrapper{
     text-align: center;
-    padding: 32px;
+    padding: 0 32px 32px 32px;
     display: flex;
     margin: 0 auto;
     max-width: 1000px;
@@ -74,6 +75,12 @@ h1{
     line-height: 52px;
     font-weight: bold;
     text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 #wrapper h2{
@@ -108,6 +115,7 @@ h1{
     transition: 400ms;
     font-weight: bold; 
     background: linear-gradient(to right, rgb(18, 207, 103), rgb(0, 255, 213));
+    cursor: pointer;
 }
 
 footer a{
@@ -127,6 +135,16 @@ footer a{
     background-color: var(--color-red);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: grid;
+    cursor: pointer;
+}
+
+.card-about{
+    background-color: var(--color-red);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: grid;
+    cursor: pointer;
 }
 
 .card-image-container img{
@@ -139,9 +157,14 @@ footer a{
     padding: 24px;
 }
 
+.card-content{
+    min-height: 120px;
+}
+
 .card-info{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .card-info :last-child{
@@ -150,6 +173,20 @@ footer a{
     padding: 5px 20px;
     border-radius: 20px;
     text-align: center;
+}
+
+.featured-wrapper.card-image-container{
+    position: relative;
+}
+
+.featured{
+    position: absolute;
+    background: linear-gradient(to right, rgb(18, 207, 103), rgb(0, 255, 213));
+    color: #111;
+    padding: 3px 10px;
+    right: 5px;
+    border-radius: 16px;
+    top: 135px;
 }
 
 /*=== MODAL ===*/
@@ -190,4 +227,32 @@ iframe{
 .modal-overlay.active{
     opacity: 1;
     visibility: visible;
+}
+
+/*=== VIDEO PAGE ===*/
+.video{
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.video .card{
+    cursor: initial;
+}
+
+.card-video-container{
+    position: relative;
+    max-width: 100%;
+    /* PROPORTION 16X9 */
+    padding-top: 56.25%;
+}
+
+.card-video-container iframe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.video-title{
+   margin-bottom: 32px; 
 }
